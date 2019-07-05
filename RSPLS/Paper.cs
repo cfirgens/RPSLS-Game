@@ -13,31 +13,28 @@ namespace RSPLS
             gestureMove = "paper";
             moveName = gestureMove;
         }
-        //member methods (Can Do)
-
-        //List<string> canBeat = new List<string>() { "Paper", "Spock" };
-
+        
         public override string CompareGesture(string playerTwoGesture)
         {
 
-            if (playerTwoGesture == "rock")
+            if (playerTwoGesture == "rock" || playerTwoGesture == "Rock")
             {
                 Console.WriteLine("Paper covers Rock, Paper wins.");
                 return "win";
             }
-            else if (playerTwoGesture == "spock")
+            else if (playerTwoGesture == "spock" || playerTwoGesture == "Spock")
             {
                 Console.WriteLine("Paper disproves Spock, Paper wins.");
                 return "win";
             }
-            else if (playerTwoGesture == "paper")
+            else if (playerTwoGesture == "paper" || playerTwoGesture == "Paper")
             {
                 Console.WriteLine("Both players chose Paper, game is a tie");
                 return "tie";
             }
             else
             {
-                Console.WriteLine("Player 1 loses");
+                Console.WriteLine(playerTwoGesture + " beats paper, "+ playerTwoGesture + " wins.");
                 return "lose";
             }
 

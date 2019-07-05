@@ -8,18 +8,14 @@ namespace RSPLS
 {
     class Human : Player
     {
-        //member variables (Has A)
-        
-        // contructor
         public Human()
         {
             Console.WriteLine(playerName);
             
         }
-        //member methods (Can Do)
         public override void GetName()
         {
-            Console.WriteLine("What would you like to be called?");
+            Console.WriteLine("What would you like to be called?\n");
             playerName = Console.ReadLine();
         }
 
@@ -27,7 +23,7 @@ namespace RSPLS
         {
             do
             {
-                Console.WriteLine("Please choose your gesture");
+                Console.WriteLine("\nPlease choose your gesture");
                 string playerGestureInput = Console.ReadLine();
                 string playerGestureLower = playerGestureInput.ToLower();
                 playerGesture = playerGestureLower;

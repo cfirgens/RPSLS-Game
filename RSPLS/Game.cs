@@ -8,85 +8,38 @@ namespace RSPLS
 {
     class Game
     {
-        //member variables (Has A)
         Player player1 = new Human();
         Player player2;
-
-        // contructor
-
-
-        //member methods (Can Do)
 
         public void runGame()
         {
             Welcome();
 
-            Console.ReadLine();
-
-            Console.ReadLine();
-
             player1.GetName();
-
-            Console.ReadLine();
 
             GetPlayers();
 
-            Console.ReadLine();
-
-            Console.ReadLine();
-
-            while (player1.score < 2 && player2.score < 2)
-            {
-                player1.GetGesture();
-
-                Console.WriteLine("player 1 chose: " + player1.playerGesture);
-
-                Console.ReadLine();
-
-                player2.GetGesture();
-
-                Console.WriteLine("computer chose:" + player2.playerGesture);
-
-                Console.ReadLine();
-
-                InstatinateGesture(player1.playerGesture);
-
-                string playerTwoGesture = player2.playerGesture;
-
-                string doesWin = player1.gesture.CompareGesture(playerTwoGesture);
-
-                AddScore(doesWin);
-
-                Console.WriteLine(player1.playerName + "'s score is " + player1.score);
-                Console.WriteLine(player2.playerName + "'s score is " + player2.score);
-
-                Console.ReadLine();
-
-            }
-
+            BestOfThree();
+            
             AnnounceWinner(player1.score, player2.score);
-
-            Console.ReadLine();
-
-
+            
         }
 
-
-        public void Welcome()
+        private void Welcome()
         {
-            Console.WriteLine("Welcome to ROCK!PAPER!SCISSORS!SPOCK?LIZARD??\nDo you know the rules?");
+            Console.WriteLine("Welcome to ROCK!PAPER!SCISSORS!SPOCK?LIZARD??\n\n\nDo you know the rules?");
 
             string rulesDisplay = Console.ReadLine();
             if(rulesDisplay == "no" || rulesDisplay == "n")
             {
                 Console.WriteLine("The game is quite simple, it is a two player game that plays much like how you would imagine" +
                 " with a few new rules. \nIt is best out of three games. \nRock beats Lizard and Scissors \nPaper beats Rock and Spock \n Scissors beats Paper and Lizard \n" +
-                "Lizard beats Spock and Paper \nSpock beats Rock and Scissors");
+                "Lizard beats Spock and Paper \nSpock beats Rock and Scissors\n");
             }
         }
-        public void GetPlayers()
+        private void GetPlayers()
         {
-            Console.WriteLine("Would you like to play against a human or A.I?");
+            Console.WriteLine("Would you like to play against a human or A.I?\n");
             string opponent = Console.ReadLine();
             if (opponent == "Human"|| opponent == "human")
                 {
@@ -96,14 +49,11 @@ namespace RSPLS
             else
             {
                 player2 = new Computer();
-                Console.WriteLine(player1.playerName + ", what name would you like to give the A.I.?");
-                Console.ReadLine();
                 player2.GetName();
             }
         }
-
-
-        public void InstatinateGesture(string playerGesture)
+        
+        private void InstatinateGesture(string playerGesture)
         {
             if (playerGesture == "rock")
             {
@@ -129,7 +79,7 @@ namespace RSPLS
 
         }
 
-        public void AddScore(string doesWin)
+        private void AddScore(string doesWin)
         {
             if(doesWin == "win")
             {
@@ -142,7 +92,7 @@ namespace RSPLS
             
         }
 
-        public void AnnounceWinner(int player1score, int player2score)
+        private void AnnounceWinner(int player1score, int player2score)
         {
             if(player1score == 2)
             {
@@ -151,6 +101,47 @@ namespace RSPLS
             else if (player2score ==2)
             {
                 Console.WriteLine(player2.playerName + " has won the game!");
+            }
+        }
+
+        private void Replay()
+        {
+            Console.WriteLine("Would you like to replay? Yes or no.");
+
+            string replay = Console.ReadLine();
+            if (replay == "y" || replay == "yes")
+            {
+                player1.score = 0;
+                player2.score = 0;
+                BestOfThree();
+            }
+        }
+        
+        private void BestOfThree()
+        {
+            while (player1.score < 2 && player2.score < 2)
+            {
+                player1.GetGesture();
+
+                Console.WriteLine(player1.playerName + " chose " + player1.playerGesture + "\n");
+
+                player2.GetGesture();
+
+                Console.WriteLine(player2.playerName + " chose " + player2.playerGesture + "\n");
+
+                InstatinateGesture(player1.playerGesture);
+
+                string playerTwoGesture = player2.playerGesture;
+
+                string doesWin = player1.gesture.CompareGesture(playerTwoGesture);
+
+                AddScore(doesWin);
+
+                Console.WriteLine(player1.playerName + "'s score is " + player1.score + "\n");
+                Console.WriteLine(player2.playerName + "'s score is " + player2.score + "\n");
+
+                Console.ReadLine();
+
             }
         }
 

@@ -13,7 +13,6 @@ namespace RSPLS
             gestureMove = "rock";
             moveName = gestureMove;
         }
-
         public override string CompareGesture(string playerTwoGesture)
         {
             
@@ -34,15 +33,11 @@ namespace RSPLS
             }
             else
             {
-                Console.WriteLine("Player 1 loses");
+                Console.WriteLine(playerTwoGesture + " beats Rock, " + playerTwoGesture + " wins.");
                 return "lose";
             }
 
         }
-
-        //member variables (Has A)
-        // contructor
-        //member methods (Can Do)
 
     }
 }

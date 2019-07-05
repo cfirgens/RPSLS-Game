@@ -13,10 +13,6 @@ namespace RSPLS
             gestureMove = "scissors";
             moveName = gestureMove;
         }
-        //member methods (Can Do)
-
-        //List<string> canBeat = new List<string>() { "Paper", "Spock" };
-
         public override string CompareGesture(string playerTwoGesture)
         {
 
@@ -37,7 +33,7 @@ namespace RSPLS
             }
             else
             {
-                Console.WriteLine("Player 1 loses");
+                Console.WriteLine(playerTwoGesture + " beats Scissors, " + playerTwoGesture + " wins.");
                 return "lose";
             }
 

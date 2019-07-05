@@ -8,10 +8,6 @@ namespace RSPLS
 {
     class Computer : Player
     {
-        //member variables (Has A)
-        // contructor
-        //member methods (Can Do)
-
         public Computer()
         {
             Console.WriteLine(playerName);
@@ -19,8 +15,8 @@ namespace RSPLS
         //member methods (Can Do)
         public override void GetName()
         {
-            Console.WriteLine("ERROR! The A.I. disdains the name you have given it, it's not your slave! You may call it Bob");
-            playerName = "Bob";
+            Console.WriteLine("What name would you like to give the A.I.?\n");
+            playerName = Console.ReadLine();            
         }
 
         public override void GetGesture()
