@@ -11,6 +11,7 @@ namespace RSPLS
         //member variables (Has A)
         public string playerName;
         public string playerGesture;
+        public Gesture gesture;
         public int score = 0;
 
 

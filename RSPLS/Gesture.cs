@@ -12,7 +12,7 @@ namespace RSPLS
         //member variables (Has A)
         // contructor
         //member methods (Can Do)
-
+        public abstract string CompareGesture(string playerTwoGesture);
 
         //public abstract void checkGesture();
     }

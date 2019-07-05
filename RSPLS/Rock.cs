@@ -8,7 +8,38 @@ namespace RSPLS
 {
     public class Rock : Gesture
     {
-        List<string> canBeat = new List<string>() { "Scissors", "Lizard" };
+        public Rock(string gestureMove)
+        {
+            gestureMove = "rock";
+            moveName = gestureMove;
+        }
+
+        public override string CompareGesture(string playerTwoGesture)
+        {
+            
+            if (playerTwoGesture == "scissors" || playerTwoGesture == "Scissors")
+            {
+                Console.WriteLine("Rock crushes Scissors, Rock wins.");
+                return "win";
+            }
+            else if (playerTwoGesture == "lizard" || playerTwoGesture == "Lizard")
+            {
+                Console.WriteLine("Rock crushes Lizard, Rock wins.");
+                return "win";
+            }
+            else if (playerTwoGesture == "rock" || playerTwoGesture == "Rock")
+            {
+                Console.WriteLine("Both players chose Rock, game is a tie");
+                return "tie";
+            }
+            else
+            {
+                Console.WriteLine("Player 1 loses");
+                return "lose";
+            }
+
+        }
+
         //member variables (Has A)
         // contructor
         //member methods (Can Do)

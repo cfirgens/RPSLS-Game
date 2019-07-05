@@ -25,21 +25,9 @@ namespace RSPLS
 
         public override void GetGesture()
         {
-            Console.WriteLine("Please choose your gesture");
-
-            string playerGestureInput = Console.ReadLine();
-
-            string playerGestureLower = playerGestureInput.ToLower();
-
-            if (playerGestureLower == "rock" || playerGesture == "paper" || playerGesture == "scissors" || playerGesture == "spock" || playerGesture == "lizard")
-            {
-                playerGesture = playerGestureLower;
-            }
-            else
-            {
-                Console.WriteLine("Please enter a valid gesture");
-            }
-
+            List<string> gestures = new List<string>() { "Rock", "Scissors", "Paper", "Lizard", "Spock" };
+            int gestureNumber = new Random().Next(0, 4);
+            playerGesture = (gestures[gestureNumber]);
         }
     }
 }
