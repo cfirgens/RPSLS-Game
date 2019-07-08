@@ -15,7 +15,6 @@ namespace RSPLS
         }
         public override void GetName()
         {
-            Console.WriteLine("What would you like to be called?\n");
             playerName = Console.ReadLine();
         }
 

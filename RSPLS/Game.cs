@@ -15,6 +15,8 @@ namespace RSPLS
         {
             Welcome();
 
+            Console.WriteLine("Player 1, what would you like to be called?");
+
             player1.GetName();
 
             GetPlayers();
@@ -22,6 +24,8 @@ namespace RSPLS
             BestOfThree();
             
             AnnounceWinner(player1.score, player2.score);
+
+            Replay();
             
         }
 
@@ -44,12 +48,18 @@ namespace RSPLS
             if (opponent == "Human"|| opponent == "human")
                 {
                 player2 = new Human();
+                Console.WriteLine("Player 2, what would you like to be called?");
                 player2.GetName();
                 }
-            else
+            else if (opponent =="AI"|| opponent =="ai" || opponent =="a.i" || opponent =="A.I.")
             {
                 player2 = new Computer();
                 player2.GetName();
+            }
+            else
+            {
+                Console.WriteLine("Please choose a valid response\n");
+                GetPlayers();
             }
         }
         
